@@ -58,8 +58,13 @@ if s is None:
 
 file = input("File name? \n")
 f = open(file, 'r')
-line = f.read()
-line = line.strip()
-line.encode('utf-8')
-framedSend(s, line, debug)
-f.close()
+
+while True:
+    line = f.read(100)
+    print(line)
+    line = line.strip()
+    line = line.encode()
+    if not line:
+        break
+    framedSend(s, line, debug)
+    print("received:", framedReceive(s, debug))

@@ -35,9 +35,13 @@ while True:
         print("new child process handling connection from", addr)
         while True:
             payload = framedReceive(sock, debug)
+            print(payload)
             if debug: print("rec'd: ", payload)
             if not payload:
                 if debug: print("child exiting")
                 sys.exit(0)
-            payload += b"!"             # make emphatic!
+            payload = payload.decode()
+            f = open('Server_file.txt', 'w')
+            f.write(payload)
+            payload = payload.encode()
             framedSend(sock, payload, debug)
