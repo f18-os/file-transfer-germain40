@@ -1,0 +1,3 @@
+In Windows, for example, a file can be any item manipulated, edited or created by the user/OS.
+That means files can be images, text documents, executables, and much more.
+Most files are organized by keeping them in individual folders.
