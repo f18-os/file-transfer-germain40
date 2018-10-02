@@ -58,6 +58,8 @@ if s is None:
 
 file = input("File name? \n")
 f = open(file, 'r')
+framedSend(s, 'FOF'.encode(), debug)
+print("received:", framedReceive(s, debug))
 
 while True:
     line = f.read(100)
