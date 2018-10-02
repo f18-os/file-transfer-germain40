@@ -40,8 +40,9 @@ while True:
             if not payload:
                 if debug: print("child exiting")
                 sys.exit(0)
+            if payload.decode() == 'FOF':
+                f = open('Server_file.txt', 'w')
             payload = payload.decode()
-            f = open('Server_file.txt', 'w')
             f.write(payload)
             payload = payload.encode()
             framedSend(sock, payload, debug)
