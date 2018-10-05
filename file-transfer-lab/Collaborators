@@ -1,0 +1,4 @@
+# Collaborators
+* Juan Rincon taught me how messeages had to be encoded to be able to get sent into the TCP stream.
+* Alan Uribe taught me how `read()` can take in the number of char's `read(100)`
+* this code is a modyfied versrion of `framedForkServer` and `framedClient`
