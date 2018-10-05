@@ -46,3 +46,5 @@ while True:
             f.write(payload)
             payload = payload.encode()
             framedSend(sock, payload, debug)
+
+        #os.path.exists(filename)
