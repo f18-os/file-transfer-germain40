@@ -56,17 +56,21 @@ if s is None:
     print('could not open socket')
     sys.exit(1)
 
-file = input("File name? \n")
-f = open(file, 'r')
-framedSend(s, 'FOF'.encode(), debug)
-print("received:", framedReceive(s, debug))
-
-while True:
-    line = f.read(100)
-    print(line)
-    line = line.strip()
-    line = line.encode()
-    if not line:
-        break
-    framedSend(s, line, debug)
+try:
+    file = input("File name? \n")
+    f = open(file, 'r')
+    framedSend(s, 'FOF'.encode(), debug) # to open the file to start writing
     print("received:", framedReceive(s, debug))
+
+    while True:
+        line = f.read(100)
+        print(line)
+        line = line.strip()
+        line = line.encode()
+        if not line:
+            break
+        framedSend(s, line, debug)
+        print("received:", framedReceive(s, debug))
+except FileNotFoundError:
+    print('File not Found')
+    sys.exit(1)
